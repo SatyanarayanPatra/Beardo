@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"); */
+      #container {
+        width: 85%;
+        border: 1px solid red;
+      }
+      #row2 {
+        display: grid;
+        grid-template-columns: repeat(4, 22%);
+        gap: 2%;
+      }
+      .imageDiv {
+        width: 98%;
+        border: 2px solid green;
+        position: relative;
+        padding: 2%;
+        box-sizing: border-box;
+      }
+
+      .image1 {
+        width: 98%;
+        border: 1px solid black;
+      }
+
+      .image2 {
+        height: 40%;
+        width: 30%;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="row1">
+        <h2></h2>
+        <div id="recomended">
+          <select name="" id="selectOrder">
+            <option value="select">-------------</option>
+            <option value="low to high">l t h</option>
+            <option value="high to low">h t l</option>
+          </select>
+        </div>
+      </div>
+      <div id="row2"></div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  let row2 = document.getElementById("row2");
+
+  import {
+    appendData,
+    sortHighToLow,
+    sortLowToHigh,
+  } from "./component/script.js";
+
+  let data = JSON.parse(localStorage.getItem("combos"));
+  // console.log(data);
+  appendData(data);
+
+  document.querySelector("select");
+  // shortHere(data);
+
+  let order = document.querySelector("#selectOrder");
+  order.addEventListener("change", () => {
+    if (order.value === "low to high") {
+      sortLowToHigh(data);
+      appendData(data);
+    } else {
+      sortHighToLow(data);
+      appendData(data);
+    }
+  });
+
+  // console.log(data);
+</script>
