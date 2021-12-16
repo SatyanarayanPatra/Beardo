@@ -1,5 +1,6 @@
 function appendData(value) {
     row2.innerHTML = "";
+
     value.forEach((ele) => {
         let giftBox = document.createElement("div");
         giftBox.className = "giftBox"
@@ -17,8 +18,12 @@ function appendData(value) {
 
         imageDiv.append(image1, image2)
 
+        let nameDiv = document.createElement("div")
+
         let name = document.createElement("h3");
+
         name.innerText = ele.name;
+        nameDiv.append(name)
 
         let priceDiv = document.createElement("div");
 
@@ -30,16 +35,17 @@ function appendData(value) {
         fPrice.innerText = ele.price;
 
         priceDiv.append(acPrice, fPrice)
-        giftBox.append(imageDiv, name, priceDiv)
+        giftBox.append(imageDiv, nameDiv, priceDiv)
 
         let cartDiv = document.createElement("div");
 
-        let cart = document.createElement("h3");
+        let cart = document.createElement("p");
         cart.innerText = "ADD TO CART"
 
 
         cartDiv.append(cart)
         let wrapper = document.createElement("div");
+        wrapper.className = "wrapper"
         wrapper.append(giftBox, cartDiv)
 
         cartDiv.addEventListener("click", () => {
