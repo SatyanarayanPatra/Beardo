@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" href="all.css" />
   </head>
   <body></body>
@@ -20,7 +16,8 @@
 
   import allDiv from "./component/allDiv.js";
   document.body.innerHTML = allDiv();
-  let data = JSON.parse(localStorage.getItem("beard"));
+  let data = JSON.parse(localStorage.getItem("tattooCare"));
+
   document.getElementById("getCount").textContent = `${data.length} RESULTS`;
   // console.log(data);
   appendData(data);
@@ -38,4 +35,6 @@
       appendData(data);
     }
   });
+
+  // console.log(data);
 </script>
